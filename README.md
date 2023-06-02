@@ -37,3 +37,6 @@ The dotfiles are organized into the following directories:
     - `thunar.xml`: Configuration file for Thunar file manager.
     - `xfce4-power-manager.xml`: Configuration file for the XFCE4 Power Manager.
 
+## Acknowledgement
+
+Polybar and Rofi themes are copied from [Archcraft Openbox](https://github.com/archcraft-os/archcraft-openbox) and specifically from [themes](https://github.com/archcraft-os/archcraft-openbox/tree/main/files/openbox-themes/themes)
