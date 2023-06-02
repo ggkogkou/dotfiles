@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-rofi -show drun -theme ~/archcraft-openbox/files/rofi/${1}/launcher.rasi
