@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin bash
 
 # Monitor configuration
 INTERNAL_MONITOR="eDP"
