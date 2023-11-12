@@ -1,0 +1,11 @@
+[Unit]
+Description=Resume from system suspend
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pkill xautolock
+ExecStartPort=/usr/bin/xautolock -time 15 -corners '----' -locker 'systemctl suspend' -notify 300 -notifier '~/.local/bin/betterlockscreen -l'
+
+[Install]
+WantedBy=suspend.target
