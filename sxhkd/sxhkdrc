@@ -41,7 +41,7 @@ super + shift + s
 
 # Lock screen
 super + k
-	~/.local/bin/betterlockscreen -l
+	/bin/bash ~/.local/bin/lock.sh	
 
 # Shutdown
 super + shift + k
