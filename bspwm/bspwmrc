@@ -22,8 +22,8 @@ if [[ "$1" = 0 ]]; then
 fi
 
 # BSPWM configuration
-bspc config border_width         2
-bspc config window_gap           4
+bspc config border_width         1
+bspc config window_gap           1
 bspc config split_ratio          0.50
 bspc config single_monocle       false
 bspc config borderless_monocle   true
@@ -35,8 +35,8 @@ bspc config pointer_action2      resize_side
 bspc config pointer_action3      resize_corner
 bspc config remove_disabled_monitors   true
 bspc config merge_overlapping_monitors true
-bspc config focused_border_color       "#B4A1DB"
-bspc config normal_border_color        "#9EE9EA"
+bspc config focused_border_color       "#16a085" # "#B4A1DB"
+bspc config normal_border_color        "#D8D8D8" # "#9EE9EA"
 bspc config active_border_color        "#E49186"
 
 # Autostart applications
@@ -45,45 +45,32 @@ bspc config active_border_color        "#E49186"
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 
 # Start the main polybar
-polybar -c ~/.config/polybar/manhattan/config.ini main &
+polybar -c ~/.config/polybar/config.ini main &
 
 # Start the secondary polybar if the external monitor is connected
 if xrandr -q | grep -q "${EXTERNAL_MONITOR} connected"; then
-  polybar -c ~/.config/polybar/manhattan/config.ini secondary &
+  polybar -c ~/.config/polybar/config.ini secondary &
 fi
 
 # Start picom (compositor)
-picom --config ~/.config/picom/picom.conf &
+picom --config ~/.config/picom/picom.conf --experimental-backends &
 
 # Set wallpaper using feh
-feh --bg-fill /usr/share/wallpapers/wallhaven-g7lyd7_1280x720.png &
+feh --bg-fill feh --bg-fill /usr/share/wallpapers/Gorilla_Yaru-Teal.jpg &  #/usr/share/wallpapers/wallhaven-m3zjx1_1920x1080.png &
 
 # Set keyboard layout (US and Greek) with option to toggle using Shift+Caps Lock
 setxkbmap -layout us,gr -variant , -option grp:shift_caps_toggle &
 
-# Start xfce4-power-manager (power management utility)
-xfce4-power-manager &
+# Start xautolock to lock and suspend system for inactivity
+xautolock -time 15 -locker 'systemctl suspend' -notify 600 -notifier '~/.local/bin/betterlockscreen -l' &
 
 # Start dunst (notification daemon)
 /usr/bin/dunst &
-
-# Start polkit-gnome-authentication-agent-1 (Polkit authentication agent)
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# Start nm-applet (network applet)
-nm-applet --indicator &
 
 # Enable numlock on startup
 numlockx on &
 
 # Other commands
 
-# Execute the 'fuckjava' command
-fuckjava &
-
 # Set cursor to left_ptr
 xsetroot -cursor_name left_ptr &
-
-# Run low battery notifier script
-~/.bin/low_bat_notifier.sh
-

@@ -15,7 +15,7 @@ window:
   decorations: none
 
   # Background opacity
-  opacity: 0.95
+  opacity: 0.98
 
   # Startup Mode (changes require restart)
   startup_mode: Windowed
@@ -40,7 +40,7 @@ font:
   # Normal (roman) font face
   normal:
     # Font family
-    family: Hack
+    family: Iosevka Nerd Font
     ##### family: RobotoMono Nerd Font
     ##### family: Mononoki Nerd Font
     # The `style` can be specified to pick a specific face.
@@ -49,7 +49,7 @@ font:
   # Bold font face
   bold:
     # Font family
-    family: Hack
+    family: Iosevka Nerd Font
     ##### family: RobotoMono Nerd Font
     ##### family: Mononoki Nerd Font
     # The `style` can be specified to pick a specific face.
@@ -58,7 +58,7 @@ font:
   # Italic font face
   italic:
     # Font family
-    family: Hack
+    family: Iosevka Nerd Font
     ##### family: RobotoMono Nerd Font
     ##### family: Mononoki Nerd Font
     # The `style` can be specified to pick a specific face.
@@ -67,7 +67,7 @@ font:
   # Bold italic font face
   bold_italic:
     # Font family
-    family: Hack
+    family: Iosevka Nerd Font
     ##### family: RobotoMono Nerd Font
     ##### family: Mononoki Nerd Font
     # The `style` can be specified to pick a specific face.
@@ -181,8 +181,8 @@ schemes:
     # Default colors
     &nord
     primary:
-      background: '#2E3440'
-      foreground: '#D8DEE9'
+      background: '#2D2D2D'
+      foreground: '#D8D8D8'
     # Normal colors
     normal:
       black: '#3B4252'
@@ -370,40 +370,44 @@ schemes:
       white: '0x757575'
 
   ############# Futuristic City #############
-  futuristic_city: &futuristic_city
+  futuristic_city: 
+    &futuristic_city
+    # Default colors
     # Default colors
     primary:
-      background: '0x000000'
-      foreground: '0xffffff'
+      background: '0x131519'
+      foreground: '0xf1f2f4'
+
     # Normal colors
-    normal:
-      black:   '0x8c452b'
-      red:     '0xda1657'
-      green:   '0x367358'
-      yellow:  '0x77d9a1'
-      blue:    '0x3b8c8c'
-      magenta: '0xff850d'
-      cyan:    '0x366873'
-      white:   '0xe9e9e9'
-    # Bright colors
-    bright:
-      black:   '0xbf5d39'
-      red:     '0xda4375'
-      green:   '0x37cc7e'
-      yellow:  '0xf8fc50'
-      blue:    '0x52cccc'
-      magenta: '0xffa64f'
-      cyan:    '0x36899b'
-      white:   '0xfdfdfd'
+  normal:
+    black:   '0x3d3d3d'
+    red:     '0xe92020'
+    green:   '0x3eb34f'
+    yellow:  '0xeea834'
+    blue:    '0x208fe9'
+    magenta: '0x924d8b'
+    cyan:    '0x16a085'
+    white:   '0x9c9c9c'
+
+  # Bright colors
+  bright:
+    black:   '0xf1f2f4'
+    red:     '0x742525'
+    green:   '0x123d18'
+    yellow:  '0x8c5e11'
+    blue:    '0x255074'
+    magenta: '0x5e2750'
+    cyan:    '0x094a3d'
+    white:   '0x4d4d4d'
 
 
 # Set the color scheme
-colors: *mikazuki
+#colors: *mikazuki
 #colors: *erebus
 #colors: *cloud
 #colors: *oceanic_next
 #colors: *hybrid
-#colors: *futuristic_city
+colors: *futuristic_city
 #colors: *dracula
 #colors: *horizon-dark
 #colors: *nord

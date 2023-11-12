@@ -1,10 +1,14 @@
 # Rofi
 super + d
-    rofi -show drun -theme ~/.config/rofi/manhattan/launcher.rasi
+    rofi -show drun -theme ~/.config/rofi/launcher.rasi
 
 # Launch network manager dmenu
 super + n
     networkmanager_dmenu
+
+# Suspend
+super + l
+    systemctl suspend
 
 # Screenshot xfce4-screenshooter
 Print
@@ -12,10 +16,6 @@ Print
 
 alt + Print
     xfce4-screenshooter --window
-
-# Rofi theme selector
-super + shift + d
-    rofi-theme-selector
 
 # Alacritty
 super + Return
@@ -41,26 +41,33 @@ super + shift + s
 
 # Lock screen
 super + k
-	betterlockscreen -l
+	~/.local/bin/betterlockscreen -l
 
 # Shutdown
 super + shift + k
     shutdown 0
 
+# Reboot
+super + shift + j
+    reboot
+
 # Raises volume
 XF86AudioRaiseVolume
-#    amixer set Master 5%+
-    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    amixer set Master 5%+
+#    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+#    bash -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
 
 # Lowers volume
 XF86AudioLowerVolume
-#    amixer set Master 5%-
-    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    amixer set Master 5%-
+#    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+#    bash -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
 
 # Mute
 XF86AudioMute
 #    amixer -D pulse set Master 1+ toggle
-    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+#    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    pactl set-sink-mute 0 toggle
 
 # Brightness up
 XF86MonBrightnessUp
@@ -154,8 +161,8 @@ super + ctrl + {_,shift +}{1-9}
 	bspc node {_,@/} --presel-ratio 0.{1-9}
 
 # Focus selected desktop
-alt + Tab
-	bspc desktop -f '^{1-9,10}'
+#alt + Tab
+#	bspc desktop -f '^{1-9,10}'
 
 # Expand tiled space
 alt + shift + {h,j,k,l}
